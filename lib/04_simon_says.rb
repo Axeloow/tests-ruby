@@ -19,7 +19,10 @@ def first_word(st)
 end
 
 def titleize(st)
-  return st.split.map{|e| if e!="and" or e!="the" then e.capitalize else e.downcase end}.join(" ")
+  downcase=["the","and"]
+  tbr= st.split.each{|e| e.capitalize! unless downcase.include? e}.join(' ')
+  tbr = tbr.sub("the","The")
+  return tbr
 end
 
 
